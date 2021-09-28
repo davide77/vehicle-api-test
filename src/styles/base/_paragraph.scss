@@ -1,0 +1,14 @@
+////
+/// Paragraph
+/// @group base
+////
+
+p {
+    @include break-words;
+    margin: 0;
+
+    &:empty {
+        display: none;
+        visibility: hidden;
+    }
+}

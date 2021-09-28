@@ -1,0 +1,60 @@
+////
+/// Table
+/// @group base
+////
+
+table {
+    border-collapse: collapse;
+
+    th,
+    td {
+        min-width: 6em;
+        padding: $small;
+    }
+
+    th {
+        background-color: $primary;
+        color: $primary;
+    }
+
+     
+
+    .center {
+        text-align: center;
+    }
+
+    .numeral {
+        text-align: right;
+    }
+}
+
+.inline-table {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &,
+    table {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    table {
+        min-width: 100%;
+        flex: 1 0 auto;
+        align-self: flex-start;
+    }
+
+    &.sticky-headers {
+        table {
+            position: relative;
+        }
+
+        tbody th {
+            position: sticky;
+            left: 0;
+        }
+    }
+}

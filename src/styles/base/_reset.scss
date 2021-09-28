@@ -1,0 +1,55 @@
+/* stylelint-disable */
+////
+/// Reset
+/// @group base
+// Inspired by Andy Bell's Modern CSS Reset
+// https://github.com/hankchizljaw/modern-css-reset
+////
+
+// Box model set to `border-box` by default
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Touch Action
+a,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+    touch-action: manipulation;
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion) {
+    *,
+    *::before,
+    *::after {
+        background-attachment: initial !important;
+        animation-play-state: paused !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+figure,
+figcaption,
+blockquote,
+fieldset, ul,li{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+/* stylelint-enable */

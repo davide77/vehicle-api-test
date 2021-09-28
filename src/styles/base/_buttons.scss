@@ -1,0 +1,77 @@
+////
+/// Buttons
+/// @group base
+////
+
+%collection-buttons {
+    position: relative;
+    font-display: $font-display-default;
+    font-variant-numeric: lining-nums;
+    font-family: "Oswald";
+    padding: v(measure, small) v(measure, large);
+    text-decoration: none;
+    @include transition;
+    background-color: transparent;
+    text-align: center;
+   line-height: $line-height-thin;
+    text-transform: uppercase;
+    font-size: $h6;
+}
+
+.button {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: $h6;
+    font-family: "Lato";
+    font-weight: $font-weight-semibold;
+    text-transform: initial;
+}
+.button--primary {
+    background-color: $primary;
+    color: $primary;
+    outline-width: 0;
+    outline-style: dotted;
+    outline-color: $primary;
+
+    &:focus,
+    &:hover {
+        background-color: $secondary;
+    }
+
+    &:focus {
+        outline-width: 2px;
+    }
+}
+
+
+.btn {
+    white-space: nowrap; 
+    &.primary {
+        background-color: $primary;
+        color: $primary;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $primary;
+
+        &:focus,
+        &:hover {
+            
+        }
+
+    }
+
+    &:focus {
+        outline-color: $primary;
+        outline-width: $border-thin;
+        outline-offset: $border-thin;
+    }
+ 
+}
+
+.buttons {
+    margin: calc(#{$gap} * -1);
+
+    & > * {
+        margin: $gap;
+    }
+}

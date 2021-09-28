@@ -1,0 +1,40 @@
+////
+/// Wrap
+/// @group layout
+////
+
+.wrap {
+    width: 100%;
+    max-width: $breakpoint-gigantic;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $small;
+    padding-right: $small;
+
+    @media(min-width $breakpoint-small) {
+        padding-left: $medium;
+        padding-right: $medium;
+    }
+
+    @media(min-width $breakpoint-medium) {
+        padding-left: $large;
+        padding-right: $large;
+    }
+
+    @media(min-width $breakpoint-gigantic) {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+}
+
+ 
+// Full Bleed
+.full-bleed,
+%full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}

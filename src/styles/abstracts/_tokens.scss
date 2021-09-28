@@ -1,0 +1,97 @@
+////
+/// Tokens
+/// @group abstracts
+////
+//Colours palette
+$blue: #003da6;
+$pale-blue: #a3cfff;
+$purple: #3e1e5f;
+$pink: #eb386b;
+$teal-green: #0cbaba;
+$olive-green: #b9be2f;
+$yellow: #fbe54e;
+$dark-grey: #444;
+$light-grey: #ddd; 
+
+$primary: $dark-grey;
+$secondary:$blue;
+$tertiary:$purple;
+
+// Simple list of opacities
+//opacities
+$opacity-ten: 0.1;
+$opacity-twenty: 0.2;
+$opacity-thirty: 0.3;
+$opacity-forty: 0.4;
+$opacity-fifty: 0.5;
+$opacity-sixty: 0.6;
+$opacity-seventy: 0.7;
+$opacity-eighty: 0.8;
+$opacity-ninety: 0.9;
+
+//measure 
+$breakpoint-small: 500px;
+$breakpoint-medium: 856px;
+$breakpoint-large: 1000px;
+$breakpoint-gigantic: 1440px;
+$gap: 1rem;
+$gutter: 136px;
+$small: 1rem;
+$medium: 2rem;
+$large: 3rem;
+$xlarge: 4rem;
+$border-default: 0.25rem;
+$border-thin: 0.125rem;
+$button-minimum: 40px;
+
+//font-size
+$font-size-default: 1rem;
+$h1: 110px;
+$h2: 80px;
+$h3: 40px;
+$h4: 25px;
+$h5: 20px;
+$h6: 18px;
+$h7: 14px;
+$h8: 12px;
+
+//font-weight
+$font-weight-default: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 700;
+
+//font-display
+$font-display-default: swap;
+
+//line-height
+$line-height-thin: 1;
+$line-height-shallow: 1.2;
+$line-height-default: 1.5;
+$line-height-thick: 2.118;
+
+//letter-spacing
+$letter-spacing-default: 0;
+$letter-spacing-thin: 0.0625em;
+$letter-spacing-shallow: 0.125em;
+
+
+//z-index
+$z-index-below: -1;
+$z-index-root: 0;
+$z-index-default: 1;
+$z-index-above: 2;
+$z-index-modal: 3;
+$z-index-dialog: 4;
+$z-index-notification: 5;
+
+//breakpoints
+$breakpoint-phone: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-pluss: 1440px;
+//breakpoints
+$breakpoint-small: $breakpoint-phone;
+$breakpoint-medium: $breakpoint-tablet;
+$breakpoint-large: $breakpoint-desktop;
+$breakpoint-gigantic: $breakpoint-desktop-pluss;
+

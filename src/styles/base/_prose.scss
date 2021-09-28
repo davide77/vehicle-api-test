@@ -1,0 +1,56 @@
+////
+/// Prose
+/// @group base
+////
+ 
+strong {
+    font-weight: $font-weight-semibold;
+}
+
+small {
+    font-size: $h5;
+}
+
+sub,
+sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 1em;
+    line-height: 0;
+    text-transform: initial;
+}
+sub {
+    bottom: 0;
+    font-variant-position: sub;
+}
+sup {
+    top: 0;
+    font-variant-position: super;
+}
+
+hr {
+    background-color: black;
+    width: 100%;
+    height: 1px;
+    display: block;
+    border: 0;
+    position: relative;
+    // show the overflow in Edge and IE
+    overflow: visible;
+}
+
+// Hide elements visually
+[hidden]:not([hidden="false"]),
+.hidden {
+    &:not([href]),
+    &[href]:not(:focus):not(:active) {
+        @include hidden;
+    }
+}
+
+// Text Selection
+::selection {
+    background-color: $primary;
+    color: $primary;
+    text-shadow: none;
+}

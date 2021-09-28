@@ -1,0 +1,85 @@
+////
+/// Media
+/// @group base
+/// @link https://chrisburnell.com/styleguide/#figure
+////
+
+$aspect-ratios: (
+    "16-by-9": 56.25%,
+    "4-by-3": 75%,
+);
+
+@each $aspect-ratio, $percentage in $aspect-ratios {
+    .media--#{$aspect-ratio} {
+        padding-top: $percentage;
+    }
+}
+
+// Contains embedded media properly and allows them to be dynamically resized
+// inside a set aspect ratio container.
+.media {
+    @extend .media--16-by-9;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+
+    %collection-media {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%; // necessary for `iframe`
+        margin-bottom: 0;
+    }
+}
+
+img,
+picture,
+svg {
+    margin: 0 auto;
+    position: relative;
+
+    &,
+    a & {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+    }
+}
+img {
+    border-style: none;
+}
+picture {
+    &,
+    img,
+    svg {
+        display: block;
+    }
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+
+audio,
+iframe,
+video {
+    width: 100%;
+    display: block;
+    border: 0;
+    overflow-x: hidden;
+}
+audio {
+    width: 100%;
+    max-width: $breakpoint-small;
+
+    &:not([controls]) {
+        display: none;
+        height: 0;
+    }
+}
+iframe {
+    max-width: 100% !important;
+    margin: 0;
+}

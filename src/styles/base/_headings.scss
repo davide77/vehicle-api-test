@@ -1,0 +1,60 @@
+////
+/// Heading
+/// @group base
+////
+
+%collection-headings {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    font-weight: $font-weight-default;
+    font-variant-numeric: lining-nums;
+}
+
+h1,
+%h1,
+.h1 {
+    font-size: $h2;
+    font-family: "Lato";
+    font-display: $font-display-default;
+    line-height: $line-height-shallow;
+    @media(min-width: $breakpoint-large) {
+       font-size: $h1;
+    }
+}
+
+h2,
+%h2,
+.h2 {
+    font-size: $h2;
+    font-family: "Lato";
+    font-display: $font-display-default;
+    line-height: $line-height-shallow;
+}
+
+h3,
+%h3,
+.h3 {
+    font-family: "Lato";
+    font-size: $h3;
+    font-display: $font-display-default;
+    line-height: $line-height-shallow;
+}
+
+h4,
+%h4,
+.h4 {
+    font-family: "Lato";
+    font-size: $h4;
+    font-display: $font-display-default;
+    line-height: $line-height-shallow;
+}
+
+h5,
+%h5,
+.h5 {
+    font-size: $h5;
+    font-family: "Lato";
+    font-display: $font-display-default;
+    line-height: $line-height-shallow;
+}

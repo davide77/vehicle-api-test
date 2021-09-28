@@ -1,0 +1,235 @@
+////
+/// Mixins
+/// @group abstracts
+////
+  
+///
+/// Generate transitions based on flexible input parameters.
+/// Pass zero or more properties and zero to two further parameters.
+/// If passing two or more properties, quotation marks must be used.
+///
+/// @author Chris Burnell
+///
+/// @param {String} $transitions - Transitions
+///
+/// @example scss - Zero parameters
+///   @include transition;
+///   // transition: all var(--transition-duration-default) var(--transition-function-default);
+///
+/// @example scss - One property
+///   @include transition(color);
+///   // transition: color var(--transition-duration-default) var(--transition-function-default);
+///
+/// @example scss - Two properties
+///   @include transition(color, border);
+///   // transition: color var(--transition-duration-default) var(--transition-function-default), border var(--transition-duration-default) var(--transition-function-default);
+///
+/// @example scss - One property, one duration
+///   @include transition(color 0.5s);
+///   // transition: color 0.5s var(--transition-function-default);
+///
+/// @example scss - One property, one duration, one timing function
+///   @include transition(color 1s linear);
+///   // transition: color 1s linear;
+///
+/// @example scss - Two properties, two durations, two timing functions
+///   @include transition(color 2s ease-in-out, border 1s linear);
+///   // transition: color 2s ease-in-out, border 1s linear;
+///
+@mixin transition($transitions...) {
+    $transition: ();
+
+    // if no parameter, transition all with default duration and function
+    @if length($transitions) == 0 {
+        $transition: all v(transition-duration) v(transition-function);
+    }
+    // if parameter just set to `none` then just transition nothing
+    @else if $transitions == none {
+        $transition: none;
+    }
+    // if the parameter contains a comma then operating on multiple properties
+    @else if str-index(#{$transitions}, ",") {
+        @each $transition-segment in $transitions {
+            $transition: append($transition, unpack-transition($transition-segment), comma);
+        }
+    }
+    @else {
+        $transition: unpack-transition($transitions...);
+    }
+
+    transition: $transition;
+}
+
+///
+/// Break words.
+///
+@mixin break-words() {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+///
+/// Visually hide an element properly.
+///
+@mixin hidden() {
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(100%) !important;
+}
+
+///
+/// Hyphenate words.
+///
+@mixin hyphenate() {
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+}
+
+///
+/// Make text non-selectable.
+///
+/// @author Chris Burnell
+///
+@mixin non-selectable() {
+    user-select: none;
+    -webkit-touch-callout: default;
+    -webkit-touch-callout: none;
+}
+
+///
+/// Make text non-interactive.
+///
+/// @author Chris Burnell
+///
+@mixin non-interactive() {
+    @include non-selectable;
+    pointer-events: none;
+    cursor: not-allowed; // kind of redundant
+}
+
+///
+/// Tabular Lining Numerals
+///
+/// @author Chris Burnell
+///
+@mixin tabular-lining-numerals() {
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum", "tnum";
+}
+
+
+///
+/// Centering elements
+///
+///
+@mixin center-xy {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @mixin center-y {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  @mixin center-x {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+//
+// borders for footer
+//
+//@include top-border`
+@mixin top-border {
+    &:before{
+        content:"";
+        position:absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top:0;
+        left:0;
+        width:100%;
+        height:1px;
+        background-color: white;
+        @include v(opacity, thirty);
+    }
+}
+//@include bottom-border
+  @mixin bottom-border {
+    &:after{
+        content:"";
+        position:absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:1px;
+        background-color: white;
+        @include v(opacity, thirty);
+    }
+}
+//@include left-border
+@mixin left-border {
+    &:before{
+        content:"";
+        position:absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top:0;
+        left:0;
+        width:1px;
+        height:100%;
+        background-color: white;
+        @include v(opacity, thirty);
+    }
+}
+//@include right-border
+@mixin right-border {
+    &:after{
+        content:"";
+        position:absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top:0;
+        left:auto;
+        right:0;
+        width:1px;
+        height:100%;
+        background-color: white;
+        @include v(opacity, thirty);
+    }
+}
+//@include full-border
+@mixin full-border {
+    &:before{
+        content:"";
+        position:absolute;
+        height:100%;
+        width: 100%;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        border-width:1px;
+        @include v(border-color, white);
+        border-style:solid;
+        @include v(opacity, seventy);
+    }
+}

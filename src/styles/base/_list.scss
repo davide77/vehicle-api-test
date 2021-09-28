@@ -1,0 +1,110 @@
+////
+/// List
+/// @group base
+////
+
+ol,
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+ol:not([class]),
+ul:not([class]),
+.default-list {
+    // Space out lists nested in a list
+    & & {
+        margin-top: $medium;
+    }
+
+    li {
+        padding-left: $large;
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: $small;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-weight: $font-weight-semibold;
+        }
+    }
+}
+ol:not([class]),
+ol.default-list {
+    // This class *requires* `default-list` to work
+    &:not([class*="continued-list"]) {
+        & > li:first-child {
+            counter-reset: ordered-list;
+        }
+    }
+
+    @for $i from 1 through 10 {
+        &[start="#{$i}"] {
+            counter-increment: ordered-list #{$i - 1} !important;
+        }
+    }
+
+    & > li {
+        counter-increment: ordered-list;
+
+        &::before {
+            @include tabular-lining-numerals;
+            content: counters(ordered-list, "·", decimal-leading-zero);
+        }
+    }
+
+    &[type="a"] li::before,
+    &.lower-alpha li::before {
+        content: counters(ordered-list, "·", lower-alpha);
+    }
+
+    &[type="A"] li::before,
+    &.upper-alpha li::before {
+        content: counters(ordered-list, "·", upper-alpha);
+    }
+
+    &[type="i"] li::before,
+    &.lower-roman li::before {
+        content: counters(ordered-list, "·", lower-roman);
+    }
+
+    &[type="I"] li::before,
+    &.upper-roman li::before {
+        content: counters(ordered-list, "·", upper-roman);
+    }
+
+    &[reversed] {
+        display: flex;
+        flex-direction: column-reverse;
+
+        // fix spacing based on reverse ordering
+        & > li {
+            &:first-child {
+                margin-bottom: 0;
+            }
+
+            &:not(:first-child) {
+                margin-bottom: $small;
+            }
+        }
+    }
+
+    // Nested Ordered List Item
+    & & li {
+        padding-left: calc(var(--measure-large) + var(--measure-medium));
+    }
+}
+[counter-reset] {
+    counter-reset: ordered-list;
+}
+ul:not([class]) li::before,
+ul.default-list li::before {
+    // BULLET
+    content: "•";
+    font-size: 1.5em;
+   line-height: $line-height-thin;
+}
