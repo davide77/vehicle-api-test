@@ -14,7 +14,7 @@ export default function VehicleList() {
         return <div data-testid="error">{error}</div>;
     }
 
-      console.log(vehicles);
+      //console.log(vehicles);
 
 
     return (

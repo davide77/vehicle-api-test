@@ -51,12 +51,13 @@ let VehicleCard = ({
                 <Modal
                     visible={visible}
                     toggle={toggle}
+                    media={media}
                     name={name}
                     price={price}
                     model={model}
                     bodystyles={bodystyles}
                     drivetrain={drivetrain}
-                    seats={seats}
+                    seats={seats} 
                     emissions={emissions}
                 />
             </>
