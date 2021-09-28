@@ -12,7 +12,7 @@ let MainImage = ({ media, name, toggle }) => {
                     style={{ width: "100%" }}
                 />
             </picture>
-            <div className="image-container__icon">Read more open modal</div>
+            <div className="image-container__more-info">Read more</div>
         </div>
     );
 };

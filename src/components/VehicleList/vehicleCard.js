@@ -57,7 +57,7 @@ let VehicleCard = ({
                     model={model}
                     bodystyles={bodystyles}
                     drivetrain={drivetrain}
-                    seats={seats} 
+                    seats={seats}  
                     emissions={emissions}
                 />
             </>
